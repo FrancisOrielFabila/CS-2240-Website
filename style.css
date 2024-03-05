@@ -2,162 +2,580 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Verdana, Tahoma, sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+#nav-checkbox, .nav-toggle{
+    display: none;
 }
 
 header{
-    background-color: white;
-    color: black;
+    position: fixed;
     width: 100%;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    height: 100px;
+    justify-content: space-between;
+    z-index: 150;
 }
 
-nav ul li{
-    list-style: none;
+.menu{
+    margin-right: 50px;
+}
+
+.menu li{
     display: inline-block;
 }
 
-nav ul li a{
+.menu li a{
+    color: black;
     text-decoration: none;
-    color: rgb(255, 201, 40);
-    font-size: 18px;
-    padding: 0 15px;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 0 10px;
 }
 
-header h2{
-    font-size: 25px;
+.menu li a:hover{
+    color: yellow;
+    transition: 0.3s;
 }
 
-----
-
-body{
+.logo{
     display: flex;
-    justify-content: center;
     align-items: center;
+}
+
+.logo img{
+    width: 80px;
+    margin-left: 40px;
+    margin-right: 5px;
+}
+
+.active{
+    transition: 0.7s ease;
+    background: white;
+}
+
+.active a:hover{
+    color: white;
+}
+
+@media screen and (max-width: 1068px){
+    .title{
+        font-size: 20px;
+    }
+    .menu a{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 928px){
+    header{
+        display: block;
+    }
+    .logo{
+        margin-left: 15px;
+    }
+    .nav-toggle{
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    margin: 0 1rem;
+    top: 25px;
+    right: 0;
+    }
+    .nav-toggle img{
+        width: 30px;
+    }
+    .close,
+    input[type='checkbox']{
+        display: none;
+    }
+    #nav-checkbox:checked ~ .menu{
+        background: white;
+        margin-top: 10px;
+        padding: 10px 0;
+        border-top: 1px solid black;
+    }
+    .menu li{
+        display: none;
+        margin: 10px 0;
+    }
+    #nav-checkbox:checked ~ ul.menu li{
+        display: block;
+    }
+    #nav-checkbox:checked ~ label.nav-toggle .open{
+        display: none;
+    }
+    #nav-checkbox:checked ~ label.nav-toggle .close{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .logo img{
+        width: 100px;
+        margin-left: 20px;
+    }
+    .title{
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 492px){
+    .logo img{
+        width: 80px;
+        margin-left: 20px;
+    }
+    .title{
+        font-size: 20px;
+    }
+    .toggle{
+        position: absolute;
+        top: 25px;
+        right: 50px;
+    }
+}
+
+@media screen and (max-width: 411px){
+    .logo img{
+        width: 80px;
+        margin-left: 20px;
+    }
+    .title{
+        font-size: 15px;
+    }
+    .toggle{
+        position: absolute;
+        top: 25px;
+        right: 35px;
+    }
+}
+
+
+
+#WelcomePage{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url("background img/Home Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.homepage{
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+
+.homepage h2{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.homepage a{
+    text-decoration: none;
+    color: white;
+    background: tomato;
+    padding: 10px 20px;
+    letter-spacing: 10px;
+    border-radius: 10px;
+}
+
+.homepage a:hover{
+    border: 3px solid tomato;
+    background: rgb(255,99,71,0.4);
+    transition: 0.3s;
+}
+
+
+
+#AboutMe{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+    background-color: beige;
+    /* background-image: url("background img/Home Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; */
 }
 
 .aboutme{
-    float: left;
-    max-width: 350px;
-    max-height: 350px;
-    cursor: pointer;
-    box-sizing: border-box;
-    display: inline-flexbox;
-    border-radius: 10px;
-    border: 3px solid white;
-    float: left;
-    margin-right: 20px;
+    width: 80%;
+    display: flex;
+    align-items: center;
 }
 
-.container{
-    height: 600px;
+.aboutme img{
+    width: 50vh;
+    border-radius: 60px;
+    border: white 10px solid;
+}
+
+.about-text{
+    display: flexbox;
+    font-size: 3vh;
+    text-align: justify;
+    margin-left: 50px;
+}
+
+.about-text h2{
+    padding-bottom: 50px;
+}
+
+.about-text p{
+    color: black;
+}
+
+
+
+#DifferentBikes{
     width: 100%;
+    height: 90vh;
+    background-image: url("background img/DiffBikes\ background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.differentbikes{
+    position: relative;
+    height: 300px;
+    width: 300px;
+    background: white;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+    display: flex;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+    border-radius: 15px;
+}
+
+.differentbikes:hover{
+    width: 500px;
+}
+
+.differentbikes .bikebox{
+    position: relative;
+    min-width: 300px;
+    height: 100%;
+    background: beige;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    padding: 50px;
 }
 
-.text-box{
-    margin-left: 50px;
+.differentbikes .bikebox img{
+    max-width: 250px;
+    transition: 0.5s ease-in-out;
+}
+
+.differentbikes:hover .bikebox img{
+    transform: scale(1.2);
+}
+
+.differentbikes .details{
+    position: relative;
+    width: 300px;
+    height: 100%;
+    background: tomato;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.differentbikes .details::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid beige;
+}
+
+
+
+#Gear{
+    width: 100%;
+    height: 90vh;
+    background-image: url("background img/bikepark\ background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gear-container{
+    width: 90%;
+    height: 100%;
+    padding-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.gear-container .gear-card{
+    width: 350px;
+    overflow: hidden;
     text-align: center;
+    margin-bottom: 15px;
+    border: 2px white solid;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.8);
+}
+
+.gear-container .gear-card .gear-img{
+    width: 300px;
+    margin: 20px auto;
+}
+
+.gear-container .gear-card .gear-img img{
+    width: 280px;
+    /* transition: 0.5s; */
+}
+
+.gear-container .gear-card .gear-img img:hover{
+    transform: scale(1.2);
+}
+
+.gear-container .gear-card .gear-info h4{
+    font-size: 50px;
+    padding: 0 25px;
+    margin-bottom: 30px;
+}
+
+.gear-container .gear-card .gear-btn{
+    width: 100%;
+}
+
+.gear-container .gear-card .gear-btn button{
+    width: 100%;
+    padding: 20px;
+    background: pink;
+    border: 1px solid black;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 0 0 17px 17px;
+}
+
+
+
+#BikeParks{
+    width: 100%;
+    height: 90vh;
+    background-image: url("background img/Home Background.jpg");    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.bikepark{
+    height: 100%;
+    position: relative;
+}
+
+.bikepark .bplist .bpitem{
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+
+.bikepark .bplist .bpitem img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bikepark .bplist .bpitem::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top, black 30%, transparent);
+}
+
+.bikepark .bplist .bpitem .bpcontent{
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    width: 500px;
+    max-width: 80%;
+    z-index: 1;
+}
+
+.bpcontent h2, p{
     color: white;
 }
-.text-box h1{
-    margin-bottom: 50px;
+
+.bikepark .bplist .bpitem .bpcontent p:nth-child(1){
+    text-transform: uppercase;
+    letter-spacing: 10px;
 }
 
-----
+.bikepark .bplist .bpitem .bpcontent h2{
+    font-size: 100px;
+    margin: 0;
+}
 
-.bike-container{
-    background-color: blue;
-    height: 6px;
+.bikepark .bplist .bpitem.active{
+    opacity: 1;
+    z-index: 10;
+}
+
+@keyframes showContent{
+    to{
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.bikepark .bplist .bpitem.active p:nth-child(1),
+.bikepark .bplist .bpitem.active h2,
+.bikepark .bplist .bpitem.active p:nth-child(3){
+    transform: translateY(30px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s .7s ease-in-out 1 forwards;
+}
+
+.bikepark .bplist .bpitem.active h2{
+    animation-delay: 1s;
+}
+
+.bikepark .bplist .bpitem.active p:nth-child(3){
+    animation-delay: 1.3s;
+}
+
+.arrows{
+    position: absolute;
+    top: 30%;
+    right: 150px;
+    z-index: 100;
+}
+
+.arrows button{
+    background-color: grey;
+    border: none;
+    font-family: monospace;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: black;
+    transition: .5s;
+}
+
+.arrows button:hover{
+    background-color: white;
+    color: black;
+}
+
+.profile{
+    position: absolute;
+    bottom: 30px;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
     width: 100%;
-    display: flex;
+    height: 250px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow: auto;
     justify-content: center;
+}
+
+.profile::-webkit-scrollbar{
+    width: 0;
+}
+
+.profile .bpitem{
+    width: 150px;
+    height: 220px;
+    filter: brightness(.5);
+    transition: .5s;
+}
+
+.profile .bpitem img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.profile .bpitem.active{
+    filter: brightness(1.5);
+    border-radius: 10px;
+}
+
+.profile .bpitem .bpcontent{
+    position: absolute;
+    inset: auto 10px 10px 10px;
+}
+
+@media screen and (max-width: 678px) {
+    .profile{
+        justify-content: start;
+    }
+    .profile .bplist .bpitem .bpcontent h2{
+        font-size: 60px;
+    }
+    .arrows{
+        top: 10%;
+    }
+}
+
+
+
+.footer{
+    background: black  ;
+    margin-top: 1px;
+    height: 200px;
+    width: 100%;
+    padding: 30px auto;
+    display: flex;
     align-items: center;
-    padding: 50px;
-}
-
-.card{
-    width: 400px;
-    height: 400px;
-    display: inline-block;
-    border-radius: 15px;
-    border: 5px solid white;
-    padding: 15px 25px;
-    box-sizing: border-box;
-    cursor: pointer;
-    margin: 10px 15px;
-    background-position: center;
-    background-size: cover;
-    transition: transform 0.5s;
-    overflow: hidden;
-}
-
-.card:hover{
-    transform: translateY(-15px);
-}
-
-.hvr{
-    height: 70px;
-    width: 200px;
-    padding: 6px;
-    box-sizing: border-box;
-}
-
-.bikes1,.bikes2{
-    margin-top: 20px;
-    display: flex;
+    text-align: center;
     justify-content: center;
-    background-color: pink;
+    flex-direction: column;
+    color: white;
 }
 
-
-.bike1{
-    background-image: url(images/DH\ bike.png);    
-}
-.bike2{
-    background-image: url(images/Enduro\ Bike.png);    
-}
-.bike3{
-    background-image: url(images/Trail\ Bike.png);    
-}
-.bike4{
-    background-image: url(images/XC\ bike.png);    
-}
-.bike5{
-    background-image: url(images/Gravel\ Bike.png);    
-}
-.bike6{
-    background-image: url(images/Roadbike.png);    
+.footer h2{
+    font-size: 40px;
 }
 
-
-
-.disc1{
-    background-image: url(images/DH.png);    
-}
-.disc2{
-    background-image: url(images/Enduro.png);    
-}
-.disc3{
-    background-image: url(images/Trail.png);    
-}
-.disc4{
-    background-image: url(images/XC.png);    
-}
-.disc5{
-    background-image: url(images/Roadbiker.png);    
-}
-
-
-.disc{
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
+.footer h3{
+    padding-top: 20px;
+    padding-bottom: 15px;
 }
