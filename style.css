@@ -230,7 +230,7 @@ header{
 
 .about-text{
     display: flexbox;
-    font-size: 3vh;
+    font-size: 2vh;
     text-align: justify;
     margin-left: 50px;
 }
